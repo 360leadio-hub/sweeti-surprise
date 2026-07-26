@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Sweeti 🌸</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Noto Sans Bengali", sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#ffd6e7,#fff4f8);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+.container{
+    width:90%;
+    max-width:420px;
+    background:rgba(255,255,255,0.75);
+    backdrop-filter:blur(10px);
+    padding:30px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 10px 40px rgba(0,0,0,.15);
+    animation:show 1.5s ease;
+}
+
+h1{
+    color:#e75480;
+    margin-bottom:15px;
+}
+
+.teddy{
+    font-size:70px;
+    animation:bounce 2s infinite;
+}
+
+p{
+    color:#555;
+    line-height:1.8;
+    margin:15px 0;
+}
+
+button{
+    background:#e75480;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:30px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#d43d6b;
+}
+
+.message{
+    display:none;
+    margin-top:20px;
+    animation:fade 1s;
+}
+
+.heart{
+    position:absolute;
+    color:#ff8fab;
+    animation:fall linear infinite;
+}
+
+@keyframes show{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes bounce{
+    50%{
+        transform:translateY(-15px);
+    }
+}
+
+@keyframes fade{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-100px);
+    }
+    to{
+        transform:translateY(100vh);
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+<div class="teddy">🧸</div>
+
+<h1>Sweeti 🌸</h1>
+
+<p>
+একটু সময় নিয়ে এই ছোট্ট সারপ্রাইজটা দেখো।
+</p>
+
+
+<button onclick="openMessage()">
+খুলে দেখো 💌
+</button>
+
+
+<div class="message" id="msg">
+
+<p>
+Sweeti,<br><br>
+
+আমি জানি তোমার এখন পরীক্ষার সময় চলছে।
+এই সময় তোমার পড়াশোনা আর মানসিক শান্তিটাই সবচেয়ে গুরুত্বপূর্ণ।<br><br>
+
+কখনো যদি আমার কোনো কথা বা আচরণে তোমার খারাপ লেগে থাকে,
+তাহলে আমি সেটা বুঝতে চেষ্টা করছি।<br><br>
+
+আমি চাই তুমি মন দিয়ে পরীক্ষা দাও,
+নিজের যত্ন নাও এবং আত্মবিশ্বাস রাখো।<br><br>
+
+তোমার জন্য অনেক শুভকামনা রইলো। 🌸
+
+<br><br>
+
+— Mahin
+
+</p>
+
+</div>
+
+</div>
+
+
+<script>
+
+function openMessage(){
+    document.getElementById("msg").style.display="block";
+}
+
+
+// floating hearts
+
+setInterval(()=>{
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+heart.innerHTML="♡";
+
+heart.style.left=Math.random()*100+"%";
+heart.style.fontSize=(15+Math.random()*25)+"px";
+heart.style.animationDuration=(3+Math.random()*5)+"s";
+
+document.body.appendChild(heart);
+
+
+setTimeout(()=>{
+heart.remove();
+},8000);
+
+
+},500);
+
+
+</script>
+
+
+</body>
+</html>
