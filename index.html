@@ -4,197 +4,338 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>For Sweeti 💙</title>
+<title>Sweeti ❤️</title>
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Poppins",sans-serif;
 }
 
 body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#1a1a40,#243b55);
-    overflow:hidden;
-    color:white;
+height:100vh;
+overflow:hidden;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4,#a18cd1);
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
 }
 
-.stars{
-    position:absolute;
-    width:100%;
-    height:100%;
-    background-image:radial-gradient(white 1px,transparent 1px);
-    background-size:40px 40px;
-    opacity:.25;
+/* Background bubbles */
+
+.circle{
+position:absolute;
+border-radius:50%;
+background:rgba(255,255,255,.15);
+animation:move 10s infinite alternate;
 }
 
-.container{
-    position:relative;
-    width:90%;
-    max-width:420px;
-    padding:30px;
-    text-align:center;
-    background:rgba(255,255,255,.12);
-    backdrop-filter:blur(15px);
-    border-radius:25px;
-    box-shadow:0 10px 30px rgba(0,0,0,.3);
+.c1{
+width:200px;
+height:200px;
+top:10%;
+left:10%;
 }
+
+.c2{
+width:300px;
+height:300px;
+bottom:-100px;
+right:-50px;
+}
+
+@keyframes move{
+from{transform:translateY(0)}
+to{transform:translateY(80px)}
+}
+
+
+/* Card */
+
+.card{
+
+width:90%;
+max-width:400px;
+
+padding:30px;
+
+background:rgba(255,255,255,.18);
+
+backdrop-filter:blur(15px);
+
+border-radius:25px;
+
+text-align:center;
+
+box-shadow:0 20px 40px rgba(0,0,0,.2);
+
+animation:show 1s;
+
+}
+
+@keyframes show{
+from{
+opacity:0;
+transform:scale(.7)
+}
+
+to{
+opacity:1;
+transform:scale(1)
+}
+}
+
 
 h1{
-    margin-bottom:15px;
+font-size:30px;
+margin-bottom:20px;
 }
 
-p{
-    line-height:1.8;
-    font-size:17px;
+
+.letter{
+
+background:white;
+color:#ff4b6e;
+
+padding:20px;
+
+border-radius:20px;
+
+margin-bottom:20px;
+
+animation:open 2s;
+
 }
 
-button{
-    margin:20px 8px 0;
-    padding:12px 25px;
-    border:none;
-    border-radius:30px;
-    font-size:16px;
-    cursor:pointer;
-    transition:.3s;
+@keyframes open{
+
+0%{
+transform:rotateX(90deg);
 }
 
-.yes{
-    background:#ff7eb3;
-    color:white;
+100%{
+transform:rotateX(0);
 }
 
-.no{
-    background:white;
-    color:#333;
 }
 
-button:hover{
-    transform:scale(1.08);
+
+/* Teddy */
+
+.teddy{
+
+font-size:70px;
+
+animation:bounce 2s infinite;
+
 }
+
+@keyframes bounce{
+
+50%{
+transform:translateY(-15px);
+}
+
+}
+
 
 .message{
-    display:none;
-    margin-top:25px;
-    animation:fade .8s;
+
+font-size:18px;
+
+line-height:1.6;
+
+margin:15px 0;
+
 }
 
-@keyframes fade{
-    from{
-        opacity:0;
-        transform:translateY(20px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+
+/* Buttons */
+
+button{
+
+border:none;
+
+padding:12px 25px;
+
+border-radius:30px;
+
+font-size:17px;
+
+margin:8px;
+
+cursor:pointer;
+
 }
+
+
+.yes{
+
+background:#ff4b6e;
+color:white;
+
+}
+
+
+.no{
+
+background:white;
+color:#ff4b6e;
+
+}
+
+
+
+/* hearts */
 
 .heart{
-    position:absolute;
-    animation:fall 8s linear infinite;
-    font-size:22px;
+
+position:absolute;
+
+font-size:25px;
+
+animation:fall 6s linear infinite;
+
 }
 
+
 @keyframes fall{
-    from{
-        transform:translateY(-100px);
-    }
-    to{
-        transform:translateY(110vh);
-    }
+
+0%{
+top:-10%;
 }
+
+100%{
+top:110%;
+}
+
+}
+
+
 </style>
 
 </head>
 
+
 <body>
 
-<div class="stars"></div>
 
-<audio id="music" loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
+<div class="circle c1"></div>
+<div class="circle c2"></div>
 
 
-<div class="container">
+<div class="card">
 
-<h1>Sweeti 😊</h1>
+
+<div class="teddy">
+🧸
+</div>
+
+
+<h1>
+Sweeti ❤️
+</h1>
+
+
+<div class="letter">
 
 <p>
-তুমি কি আমার উপর একটু অভিমান করে আছো?
+আমি জানি তুমি হয়তো আমার উপর একটু অভিমান করে আছো।
 </p>
 
-<button class="yes" onclick="showMessage()">হ্যাঁ</button>
-
-<button class="no" onclick="showMessage()">না</button>
-
-
-<div class="message" id="msg">
-
 <p>
-ধন্যবাদ Sweeti 😊<br><br>
-
-আমি শুধু চেয়েছিলাম তুমি হাসো।<br>
-
-তোমার পরীক্ষা আর সময়কে আমি সম্মান করি।<br>
-
-কোনো চাপ নেই, শুধু ভালো থেকো ❤️<br><br>
-
-— Mahin
+তোমার পরীক্ষা চলছে, তোমার সময় এবং মনোযোগকে আমি সম্মান করি।
 </p>
 
 </div>
 
+
+
+<div class="message">
+
+আমি শুধু জানতে চাই...
+
+<br>
+
+<strong>
+তুমি কি আমার উপর অভিমান করে আছো?
+</strong>
+
 </div>
+
+
+<button class="yes" onclick="yesClick()">
+হ্যাঁ ❤️
+</button>
+
+
+<button class="no" onclick="noClick()">
+না 😊
+</button>
+
+
+<p id="reply"></p>
+
+
+</div>
+
 
 
 <script>
 
-let music=document.getElementById("music");
 
-document.body.addEventListener("click",()=>{
-    music.play();
-},{once:true});
+function yesClick(){
 
-
-function showMessage(){
-
-document.getElementById("msg").style.display="block";
-
-createHearts();
+document.getElementById("reply").innerHTML=
+"আমি বুঝতে পারছি ❤️ তোমার মন ভালো করার চেষ্টা করবো। তোমার পরীক্ষার জন্য শুভকামনা।";
 
 }
 
 
-function createHearts(){
+function noClick(){
 
-for(let i=0;i<20;i++){
+document.getElementById("reply").innerHTML=
+"ভালো লাগলো 😊 তোমার হাসিটাই সবচেয়ে গুরুত্বপূর্ণ।";
+
+}
+
+
+
+// floating hearts
+
+setInterval(()=>{
 
 let heart=document.createElement("div");
 
 heart.className="heart";
+
 heart.innerHTML="❤️";
 
 heart.style.left=Math.random()*100+"%";
-heart.style.animationDuration=(3+Math.random()*5)+"s";
+
+heart.style.animationDuration=
+(3+Math.random()*5)+"s";
+
 
 document.body.appendChild(heart);
 
+
 setTimeout(()=>{
+
 heart.remove();
+
 },8000);
 
-}
 
-}
+},500);
+
 
 </script>
+
 
 </body>
 </html>
