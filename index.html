@@ -1,128 +1,235 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Do You Love Me?</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #ffe6e6;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow: hidden;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .container {
-            text-align: center;
-            position: relative;
-        }
+<title>Sweeti ❤️</title>
 
-        /* Feel free to replace this placeholder GIF url with your own asset link */
-        .gif-container img {
-            width: 200px;
-            height: auto;
-            margin-bottom: 20px;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
 
-        h1 {
-            color: #d93838;
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-        }
+body{
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#667eea,#764ba2);
+}
 
-        .btn-group {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            position: relative;
-            height: 50px;
-        }
+.container{
+    width:90%;
+    max-width:400px;
+    padding:30px;
+    text-align:center;
+    border-radius:25px;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(15px);
+    box-shadow:0 20px 40px rgba(0,0,0,.2);
+    color:white;
+    animation:show 1.5s ease;
+}
 
-        button {
-            padding: 12px 35px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
+@keyframes show{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 
-        #yesBtn {
-            background-color: #ff4d6d;
-            color: white;
-        }
 
-        #yesBtn:hover {
-            background-color: #ff758f;
-            transform: scale(1.1);
-        }
+.teddy{
+    font-size:80px;
+    animation:float 3s infinite ease-in-out;
+}
 
-        #noBtn {
-            background-color: #707070;
-            color: white;
-            position: absolute;
-            left: 55%; /* Initial offset placement */
-        }
-    </style>
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-15px);
+    }
+}
+
+h1{
+    margin:15px 0;
+    font-size:28px;
+}
+
+.message{
+    min-height:80px;
+    font-size:18px;
+    line-height:1.6;
+}
+
+.buttons{
+    margin-top:25px;
+}
+
+button{
+    padding:12px 25px;
+    margin:8px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+.yes{
+    background:#ff6b81;
+    color:white;
+}
+
+.no{
+    background:white;
+    color:#764ba2;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+
+.heart{
+    position:absolute;
+    color:#fff;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-100px);
+    }
+    to{
+        transform:translateY(110vh);
+    }
+}
+
+.footer{
+    margin-top:20px;
+    font-size:14px;
+}
+</style>
 </head>
+
 <body>
 
-    <div class="container">
-        <div class="gif-container">
-            <!-- Replace source URL with your specific Peach/Goma or Panda animation asset -->
-            <img id="statusGif" src="https://tenor.com" alt="Cute Bear Panda">
-        </div>
-        <h1 id="questionText">Do you love me?</h1>
-        
-        <div class="btn-group">
-            <button id="yesBtn">Yes</button>
-            <button id="noBtn">No</button>
-        </div>
-    </div>
 
-    <script>
-        const yesBtn = document.getElementById('yesBtn');
-        const noBtn = document.getElementById('noBtn');
-        const questionText = document.getElementById('questionText');
-        const statusGif = document.getElementById('statusGif');
+<div class="container">
 
-        // Action when the Yes button is clicked
-        yesBtn.addEventListener('click', () => {
-            questionText.innerText = "I knew it! ❤️";
-            // Optionally update image source here to a celebratory animation
-            noBtn.style.display = 'none'; 
-        });
+<div class="teddy">🧸</div>
 
-        // Function that jumps the 'No' button away on desktop hover or mobile touch
-        function moveNoButton() {
-            // Get viewport constraints to keep the button fully visible inside screen borders
-            const padding = 100;
-            const maxX = window.innerWidth - noBtn.offsetWidth - padding;
-            const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+<h1>Sweeti 🌸</h1>
 
-            // Generate fully randomized viewport positions
-            const randomX = Math.floor(Math.random() * (maxX + 1));
-            const randomY = Math.floor(Math.random() * (maxY + 1));
+<div class="message" id="text"></div>
 
-            // Override original structural positioning to screen absolute alignment
-            noBtn.style.position = 'fixed';
-            noBtn.style.left = randomX + 'px';
-            noBtn.style.top = randomY + 'px';
-        }
 
-        // Trigger evasion loop logic for both computer mouse and tactile touchscreens
-        noBtn.addEventListener('mouseover', moveNoButton);
-        noBtn.addEventListener('touchstart', (e) => {
-            e.preventDefault(); // Prevents phantom clicks or mobile zooming behavior
-            moveNoButton();
-        });
-    </script>
+<div class="buttons">
+
+<button class="yes" onclick="replyYes()">
+হ্যাঁ 😊
+</button>
+
+<button class="no" onclick="replyNo()">
+না 🙂
+</button>
+
+</div>
+
+
+<div class="footer">
+— Mahin
+</div>
+
+</div>
+
+
+<script>
+
+let msg =
+"Sweeti, তুমি কি আমার উপর একটু অভিমান করে আছো? 🥺<br><br>আমি জানি তোমার পরীক্ষা চলছে। তোমার পড়াশোনা এবং সময়কে আমি সম্মান করি। শুধু জানতে চেয়েছিলাম তুমি ভালো আছো কিনা। ❤️";
+
+
+let i=0;
+
+function typing(){
+
+if(i < msg.length){
+
+document.getElementById("text").innerHTML =
+msg.substring(0,i);
+
+i++;
+
+setTimeout(typing,40);
+
+}
+
+}
+
+typing();
+
+
+
+function replyYes(){
+
+document.getElementById("text").innerHTML =
+"আমি বুঝতে পারছি। 😊<br><br>তোমার মন ভালো করার চেষ্টা করবো। পরীক্ষার জন্য শুভকামনা রইলো। 🌸";
+
+}
+
+
+function replyNo(){
+
+document.getElementById("text").innerHTML =
+"ভালো লাগলো শুনে। 😊<br><br>মন দিয়ে পড়াশোনা করো। নিজের যত্ন নিও। 🌼";
+
+}
+
+
+// floating hearts
+
+setInterval(()=>{
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤";
+
+heart.style.left=Math.random()*100+"%";
+
+heart.style.animationDuration=
+(3+Math.random()*5)+"s";
+
+heart.style.fontSize=
+(15+Math.random()*25)+"px";
+
+document.body.appendChild(heart);
+
+
+setTimeout(()=>{
+heart.remove();
+},8000);
+
+
+},500);
+
+
+</script>
+
+
 </body>
 </html>
