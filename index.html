@@ -4,83 +4,90 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>For Sweeti 🌸</title>
+<title>For Sweeti 💙</title>
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:"Noto Sans Bengali", sans-serif;
+    font-family:'Segoe UI',sans-serif;
 }
 
 body{
     min-height:100vh;
-    background:linear-gradient(135deg,#ffd6e7,#fff4f8);
     display:flex;
     justify-content:center;
     align-items:center;
+    background:linear-gradient(135deg,#1a1a40,#243b55);
     overflow:hidden;
+    color:white;
+}
+
+.stars{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-image:radial-gradient(white 1px,transparent 1px);
+    background-size:40px 40px;
+    opacity:.25;
 }
 
 .container{
+    position:relative;
     width:90%;
     max-width:420px;
-    background:rgba(255,255,255,0.75);
-    backdrop-filter:blur(10px);
     padding:30px;
-    border-radius:25px;
     text-align:center;
-    box-shadow:0 10px 40px rgba(0,0,0,.15);
-    animation:show 1.5s ease;
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(15px);
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
 }
 
 h1{
-    color:#e75480;
     margin-bottom:15px;
 }
 
-.teddy{
-    font-size:70px;
-    animation:bounce 2s infinite;
-}
-
 p{
-    color:#555;
     line-height:1.8;
-    margin:15px 0;
+    font-size:17px;
 }
 
 button{
-    background:#e75480;
-    color:white;
-    border:none;
+    margin:20px 8px 0;
     padding:12px 25px;
+    border:none;
     border-radius:30px;
     font-size:16px;
     cursor:pointer;
+    transition:.3s;
+}
+
+.yes{
+    background:#ff7eb3;
+    color:white;
+}
+
+.no{
+    background:white;
+    color:#333;
 }
 
 button:hover{
-    background:#d43d6b;
+    transform:scale(1.08);
 }
 
 .message{
     display:none;
-    margin-top:20px;
-    animation:fade 1s;
+    margin-top:25px;
+    animation:fade .8s;
 }
 
-.heart{
-    position:absolute;
-    color:#ff8fab;
-    animation:fall linear infinite;
-}
-
-@keyframes show{
+@keyframes fade{
     from{
         opacity:0;
-        transform:translateY(40px);
+        transform:translateY(20px);
     }
     to{
         opacity:1;
@@ -88,15 +95,10 @@ button:hover{
     }
 }
 
-@keyframes bounce{
-    50%{
-        transform:translateY(-15px);
-    }
-}
-
-@keyframes fade{
-    from{opacity:0;}
-    to{opacity:1;}
+.heart{
+    position:absolute;
+    animation:fall 8s linear infinite;
+    font-size:22px;
 }
 
 @keyframes fall{
@@ -104,53 +106,47 @@ button:hover{
         transform:translateY(-100px);
     }
     to{
-        transform:translateY(100vh);
+        transform:translateY(110vh);
     }
 }
-
 </style>
+
 </head>
 
-
 <body>
+
+<div class="stars"></div>
+
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
 
 
 <div class="container">
 
-<div class="teddy">🧸</div>
-
-<h1>Sweeti 🌸</h1>
+<h1>Sweeti 😊</h1>
 
 <p>
-একটু সময় নিয়ে এই ছোট্ট সারপ্রাইজটা দেখো।
+তুমি কি আমার উপর একটু অভিমান করে আছো?
 </p>
 
+<button class="yes" onclick="showMessage()">হ্যাঁ</button>
 
-<button onclick="openMessage()">
-খুলে দেখো 💌
-</button>
+<button class="no" onclick="showMessage()">না</button>
 
 
 <div class="message" id="msg">
 
 <p>
-Sweeti,<br><br>
+ধন্যবাদ Sweeti 😊<br><br>
 
-আমি জানি তোমার এখন পরীক্ষার সময় চলছে।
-এই সময় তোমার পড়াশোনা আর মানসিক শান্তিটাই সবচেয়ে গুরুত্বপূর্ণ।<br><br>
+আমি শুধু চেয়েছিলাম তুমি হাসো।<br>
 
-কখনো যদি আমার কোনো কথা বা আচরণে তোমার খারাপ লেগে থাকে,
-তাহলে আমি সেটা বুঝতে চেষ্টা করছি।<br><br>
+তোমার পরীক্ষা আর সময়কে আমি সম্মান করি।<br>
 
-আমি চাই তুমি মন দিয়ে পরীক্ষা দাও,
-নিজের যত্ন নাও এবং আত্মবিশ্বাস রাখো।<br><br>
-
-তোমার জন্য অনেক শুভকামনা রইলো। 🌸
-
-<br><br>
+কোনো চাপ নেই, শুধু ভালো থেকো ❤️<br><br>
 
 — Mahin
-
 </p>
 
 </div>
@@ -160,37 +156,45 @@ Sweeti,<br><br>
 
 <script>
 
-function openMessage(){
-    document.getElementById("msg").style.display="block";
+let music=document.getElementById("music");
+
+document.body.addEventListener("click",()=>{
+    music.play();
+},{once:true});
+
+
+function showMessage(){
+
+document.getElementById("msg").style.display="block";
+
+createHearts();
+
 }
 
 
-// floating hearts
+function createHearts(){
 
-setInterval(()=>{
+for(let i=0;i<20;i++){
 
 let heart=document.createElement("div");
 
 heart.className="heart";
-heart.innerHTML="♡";
+heart.innerHTML="❤️";
 
 heart.style.left=Math.random()*100+"%";
-heart.style.fontSize=(15+Math.random()*25)+"px";
 heart.style.animationDuration=(3+Math.random()*5)+"s";
 
 document.body.appendChild(heart);
-
 
 setTimeout(()=>{
 heart.remove();
 },8000);
 
+}
 
-},500);
-
+}
 
 </script>
-
 
 </body>
 </html>
