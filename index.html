@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sweeti ❤️</title>
+<title>For Sweeti 💙</title>
 
 <style>
 *{
@@ -15,31 +15,79 @@
 }
 
 body{
-    height:100vh;
-    overflow:hidden;
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    background:linear-gradient(135deg,#667eea,#764ba2);
+    background:linear-gradient(135deg,#1a1a40,#243b55);
+    overflow:hidden;
+    color:white;
+}
+
+.stars{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-image:radial-gradient(white 1px,transparent 1px);
+    background-size:40px 40px;
+    opacity:.25;
 }
 
 .container{
+    position:relative;
     width:90%;
-    max-width:400px;
+    max-width:420px;
     padding:30px;
     text-align:center;
-    border-radius:25px;
-    background:rgba(255,255,255,0.15);
+    background:rgba(255,255,255,.12);
     backdrop-filter:blur(15px);
-    box-shadow:0 20px 40px rgba(0,0,0,.2);
-    color:white;
-    animation:show 1.5s ease;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
 }
 
-@keyframes show{
+h1{
+    margin-bottom:15px;
+}
+
+p{
+    line-height:1.8;
+    font-size:17px;
+}
+
+button{
+    margin:20px 8px 0;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.yes{
+    background:#ff7eb3;
+    color:white;
+}
+
+.no{
+    background:white;
+    color:#333;
+}
+
+button:hover{
+    transform:scale(1.08);
+}
+
+.message{
+    display:none;
+    margin-top:25px;
+    animation:fade .8s;
+}
+
+@keyframes fade{
     from{
         opacity:0;
-        transform:translateY(50px);
+        transform:translateY(20px);
     }
     to{
         opacity:1;
@@ -47,65 +95,10 @@ body{
     }
 }
 
-
-.teddy{
-    font-size:80px;
-    animation:float 3s infinite ease-in-out;
-}
-
-@keyframes float{
-    0%,100%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-15px);
-    }
-}
-
-h1{
-    margin:15px 0;
-    font-size:28px;
-}
-
-.message{
-    min-height:80px;
-    font-size:18px;
-    line-height:1.6;
-}
-
-.buttons{
-    margin-top:25px;
-}
-
-button{
-    padding:12px 25px;
-    margin:8px;
-    border:none;
-    border-radius:30px;
-    cursor:pointer;
-    font-size:16px;
-    transition:.3s;
-}
-
-.yes{
-    background:#ff6b81;
-    color:white;
-}
-
-.no{
-    background:white;
-    color:#764ba2;
-}
-
-button:hover{
-    transform:scale(1.1);
-}
-
-
 .heart{
     position:absolute;
-    color:#fff;
-    animation:fall linear infinite;
+    animation:fall 8s linear infinite;
+    font-size:22px;
 }
 
 @keyframes fall{
@@ -116,41 +109,46 @@ button:hover{
         transform:translateY(110vh);
     }
 }
-
-.footer{
-    margin-top:20px;
-    font-size:14px;
-}
 </style>
+
 </head>
 
 <body>
 
+<div class="stars"></div>
+
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
 
 <div class="container">
 
-<div class="teddy">🧸</div>
+<h1>Sweeti 😊</h1>
 
-<h1>Sweeti 🌸</h1>
+<p>
+তুমি কি আমার উপর একটু অভিমান করে আছো?
+</p>
 
-<div class="message" id="text"></div>
+<button class="yes" onclick="showMessage()">হ্যাঁ</button>
 
-
-<div class="buttons">
-
-<button class="yes" onclick="replyYes()">
-হ্যাঁ 😊
-</button>
-
-<button class="no" onclick="replyNo()">
-না 🙂
-</button>
-
-</div>
+<button class="no" onclick="showMessage()">না</button>
 
 
-<div class="footer">
+<div class="message" id="msg">
+
+<p>
+ধন্যবাদ Sweeti 😊<br><br>
+
+আমি শুধু চেয়েছিলাম তুমি হাসো।<br>
+
+তোমার পরীক্ষা আর সময়কে আমি সম্মান করি।<br>
+
+কোনো চাপ নেই, শুধু ভালো থেকো ❤️<br><br>
+
 — Mahin
+</p>
+
 </div>
 
 </div>
@@ -158,78 +156,45 @@ button:hover{
 
 <script>
 
-let msg =
-"Sweeti, তুমি কি আমার উপর একটু অভিমান করে আছো? 🥺<br><br>আমি জানি তোমার পরীক্ষা চলছে। তোমার পড়াশোনা এবং সময়কে আমি সম্মান করি। শুধু জানতে চেয়েছিলাম তুমি ভালো আছো কিনা। ❤️";
+let music=document.getElementById("music");
+
+document.body.addEventListener("click",()=>{
+    music.play();
+},{once:true});
 
 
-let i=0;
+function showMessage(){
 
-function typing(){
+document.getElementById("msg").style.display="block";
 
-if(i < msg.length){
-
-document.getElementById("text").innerHTML =
-msg.substring(0,i);
-
-i++;
-
-setTimeout(typing,40);
-
-}
-
-}
-
-typing();
-
-
-
-function replyYes(){
-
-document.getElementById("text").innerHTML =
-"আমি বুঝতে পারছি। 😊<br><br>তোমার মন ভালো করার চেষ্টা করবো। পরীক্ষার জন্য শুভকামনা রইলো। 🌸";
+createHearts();
 
 }
 
 
-function replyNo(){
+function createHearts(){
 
-document.getElementById("text").innerHTML =
-"ভালো লাগলো শুনে। 😊<br><br>মন দিয়ে পড়াশোনা করো। নিজের যত্ন নিও। 🌼";
-
-}
-
-
-// floating hearts
-
-setInterval(()=>{
+for(let i=0;i<20;i++){
 
 let heart=document.createElement("div");
 
 heart.className="heart";
-
-heart.innerHTML="❤";
+heart.innerHTML="❤️";
 
 heart.style.left=Math.random()*100+"%";
-
-heart.style.animationDuration=
-(3+Math.random()*5)+"s";
-
-heart.style.fontSize=
-(15+Math.random()*25)+"px";
+heart.style.animationDuration=(3+Math.random()*5)+"s";
 
 document.body.appendChild(heart);
-
 
 setTimeout(()=>{
 heart.remove();
 },8000);
 
+}
 
-},500);
-
+}
 
 </script>
-
 
 </body>
 </html>
