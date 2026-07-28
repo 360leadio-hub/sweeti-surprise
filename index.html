@@ -1,114 +1,848 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>For Sweeti 🌸</title>
+<title>For Sweeti 💌</title>
 
 <style>
+
+/* ===== Google Font ===== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:"Noto Sans Bengali", sans-serif;
+    font-family:'Poppins',sans-serif;
 }
 
+
 body{
+
     min-height:100vh;
-    background:linear-gradient(135deg,#ffd6e7,#fff4f8);
+    overflow-x:hidden;
+    background:
+    linear-gradient(
+    135deg,
+    #12001f,
+    #2b1055,
+    #000428
+    );
+
+    color:white;
+}
+
+
+/* Main Container */
+
+.container{
+
+    width:100%;
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    overflow:hidden;
+    padding:20px;
+
 }
 
-.container{
-    width:90%;
-    max-width:420px;
-    background:rgba(255,255,255,0.75);
-    backdrop-filter:blur(10px);
+
+/* Glass Card */
+
+.card{
+
+    width:95%;
+    max-width:500px;
     padding:30px;
+
+    background:
+    rgba(255,255,255,0.12);
+
     border-radius:25px;
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+    0 0 40px rgba(255,255,255,0.15);
+
     text-align:center;
-    box-shadow:0 10px 40px rgba(0,0,0,.15);
-    animation:show 1.5s ease;
+
+    position:relative;
+
 }
+
+
+/* Title */
 
 h1{
-    color:#e75480;
-    margin-bottom:15px;
+
+font-size:32px;
+margin-bottom:20px;
+
 }
 
-.teddy{
-    font-size:70px;
-    animation:bounce 2s infinite;
-}
 
 p{
-    color:#555;
-    line-height:1.8;
-    margin:15px 0;
+
+font-size:16px;
+line-height:1.8;
+
 }
+
+
+/* Envelope */
+
+.envelope{
+
+width:150px;
+height:100px;
+
+background:#ff5c8a;
+
+margin:30px auto;
+
+border-radius:10px;
+
+position:relative;
+
+cursor:pointer;
+
+animation:float 3s infinite;
+
+}
+
+
+.envelope:before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:0;
+
+border-left:75px solid transparent;
+border-right:75px solid transparent;
+border-top:55px solid #ff86a8;
+
+}
+
+
+
+@keyframes float{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-15px);
+}
+
+}
+
+
+/* Letter */
+
+.letter{
+
+display:none;
+
+background:white;
+
+color:#333;
+
+padding:25px;
+
+border-radius:15px;
+
+margin-top:20px;
+
+animation:openLetter 1s;
+
+}
+
+
+
+@keyframes openLetter{
+
+from{
+
+transform:scale(.5);
+opacity:0;
+
+}
+
+to{
+
+transform:scale(1);
+opacity:1;
+
+}
+
+}
+
+
+
+/* Buttons */
 
 button{
-    background:#e75480;
-    color:white;
-    border:none;
-    padding:12px 25px;
-    border-radius:30px;
-    font-size:16px;
-    cursor:pointer;
+
+border:none;
+
+padding:12px 25px;
+
+border-radius:30px;
+
+margin:10px;
+
+font-size:16px;
+
+cursor:pointer;
+
+background:#ff5c8a;
+
+color:white;
+
+transition:.3s;
+
 }
+
+
 
 button:hover{
-    background:#d43d6b;
+
+transform:scale(1.1);
+
 }
 
-.message{
-    display:none;
-    margin-top:20px;
-    animation:fade 1s;
+
+
+/* Teddy Area */
+
+.teddy-area{
+
+display:flex;
+
+justify-content:center;
+
+gap:40px;
+
+margin-top:40px;
+
 }
 
-.heart{
-    position:absolute;
-    color:#ff8fab;
-    animation:fall linear infinite;
+
+
+/* Teddy */
+
+.teddy{
+
+font-size:70px;
+
+animation:bounce 2s infinite;
+
 }
 
-@keyframes show{
-    from{
-        opacity:0;
-        transform:translateY(40px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
 
 @keyframes bounce{
-    50%{
-        transform:translateY(-15px);
-    }
+
+0%,100%{
+
+transform:translateY(0);
+
 }
 
-@keyframes fade{
-    from{opacity:0;}
-    to{opacity:1;}
+50%{
+
+transform:translateY(-20px);
+
 }
 
-@keyframes fall{
-    from{
-        transform:translateY(-100px);
-    }
-    to{
-        transform:translateY(100vh);
-    }
 }
+
+
+/* Floating Hearts */
+
+.heart{
+
+position:fixed;
+
+bottom:-20px;
+
+font-size:25px;
+
+animation:rise 8s linear infinite;
+
+}
+
+
+
+@keyframes rise{
+
+0%{
+
+transform:translateY(0);
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-110vh);
+opacity:0;
+
+}
+
+}
+
+/* ===============================
+   PART 2 - PREMIUM ANIMATIONS
+================================*/
+
+
+/* Star Background */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+width:100%;
+height:100%;
+
+top:0;
+left:0;
+
+background-image:
+
+radial-gradient(
+white 1px,
+transparent 1px
+);
+
+background-size:40px 40px;
+
+opacity:.25;
+
+animation:starsMove 20s linear infinite;
+
+pointer-events:none;
+
+}
+
+
+@keyframes starsMove{
+
+
+from{
+
+transform:translateY(0);
+
+}
+
+
+to{
+
+transform:translateY(-200px);
+
+}
+
+
+}
+
+
+
+
+/* Card Glow Animation */
+
+
+.card{
+
+animation:
+cardGlow 4s infinite alternate;
+
+}
+
+
+
+@keyframes cardGlow{
+
+
+from{
+
+box-shadow:
+0 0 30px rgba(255,105,180,.3);
+
+}
+
+
+to{
+
+box-shadow:
+0 0 60px rgba(255,255,255,.5);
+
+}
+
+
+}
+
+
+
+
+/* Premium Envelope */
+
+
+.envelope{
+
+box-shadow:
+
+0 15px 30px rgba(255,0,100,.4);
+
+}
+
+
+.envelope:hover{
+
+transform:
+
+scale(1.1)
+rotate(-3deg);
+
+}
+
+
+
+
+
+/* Teddy 3D Style */
+
+
+.teddy{
+
+position:relative;
+
+filter:
+drop-shadow(
+0 15px 10px rgba(0,0,0,.4)
+);
+
+transform-style:preserve-3d;
+
+}
+
+
+
+.teddy:first-child{
+
+animation:
+
+leftTeddy 3s infinite;
+
+}
+
+
+
+.teddy:last-child{
+
+animation:
+
+rightTeddy 3s infinite;
+
+}
+
+
+
+
+@keyframes leftTeddy{
+
+
+0%,100%{
+
+transform:
+
+translateY(0)
+rotate(0deg);
+
+}
+
+
+50%{
+
+transform:
+
+translateY(-20px)
+rotate(-8deg);
+
+}
+
+
+}
+
+
+
+
+
+@keyframes rightTeddy{
+
+
+0%,100%{
+
+transform:
+
+translateY(0)
+rotate(0deg);
+
+}
+
+
+50%{
+
+transform:
+
+translateY(-20px)
+rotate(8deg);
+
+}
+
+
+}
+
+
+
+
+/* Teddy Heart */
+
+
+.teddy::after{
+
+
+content:"❤️";
+
+position:absolute;
+
+font-size:25px;
+
+bottom:10px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+
+animation:
+
+heartBeat 1.5s infinite;
+
+
+}
+
+
+
+@keyframes heartBeat{
+
+
+0%,100%{
+
+transform:
+translateX(-50%)
+scale(1);
+
+}
+
+
+50%{
+
+transform:
+translateX(-50%)
+scale(1.4);
+
+}
+
+
+}
+
+
+
+
+/* Rose Petals */
+
+
+.petal{
+
+
+position:fixed;
+
+top:-50px;
+
+font-size:25px;
+
+animation:
+
+fallPetal 10s linear infinite;
+
+z-index:5;
+
+}
+
+
+
+@keyframes fallPetal{
+
+
+0%{
+
+transform:
+
+translateY(-50px)
+rotate(0deg);
+
+opacity:1;
+
+}
+
+
+100%{
+
+
+transform:
+
+translateY(110vh)
+rotate(720deg);
+
+
+opacity:0;
+
+
+}
+
+
+}
+
+
+
+
+
+/* Button Premium Effect */
+
+
+button{
+
+
+box-shadow:
+
+0 8px 20px rgba(255,92,138,.4);
+
+
+}
+
+
+button:active{
+
+
+transform:
+
+scale(.9);
+
+
+}
+
+
+
+
+
+/* Letter More Beautiful */
+
+
+.letter{
+
+
+box-shadow:
+
+0 20px 50px rgba(0,0,0,.3);
+
+
+}
+
+
+
+
+/* Typing Cursor */
+
+
+#typing::after{
+
+
+content:"|";
+
+animation:
+
+cursorBlink .7s infinite;
+
+
+}
+
+
+
+@keyframes cursorBlink{
+
+
+50%{
+
+opacity:0;
+
+}
+
+
+}
+
+
+
+
+/* Mobile Responsive */
+
+
+@media(max-width:600px){
+
+
+.card{
+
+
+padding:20px;
+
+}
+
+
+
+h1{
+
+
+font-size:24px;
+
+
+}
+
+
+
+p{
+
+
+font-size:14px;
+
+
+}
+
+
+
+.teddy-area{
+
+
+gap:15px;
+
+
+}
+
+
+
+.teddy{
+
+
+font-size:55px;
+
+
+}
+
+
+
+button{
+
+
+padding:10px 20px;
+
+
+}
+
+
+}
+
+
+
+
+/* Background Floating Light */
+
+
+.light{
+
+
+position:fixed;
+
+width:120px;
+
+height:120px;
+
+border-radius:50%;
+
+
+background:
+
+rgba(255,255,255,.15);
+
+
+filter:
+
+blur(40px);
+
+
+animation:
+
+lightMove 8s infinite alternate;
+
+
+}
+
+
+
+@keyframes lightMove{
+
+
+from{
+
+
+transform:
+
+translate(
+-50px,
+50px
+);
+
+
+}
+
+
+to{
+
+
+transform:
+
+translate(
+300px,
+-100px
+);
+
+
+}
+
+
+    }
 
 </style>
+
 </head>
 
 
@@ -117,41 +851,56 @@ button:hover{
 
 <div class="container">
 
-<div class="teddy Bubu and Dudu">🧸</div>
-
-<h1>Sweeti 🌸</h1>
-
-<p>
-sweeti তুমি কি এখনও আমার উপর অভিমান করে আছো?
-</p>
+<div class="card">
 
 
-<button onclick="openMessage()">
-খুলে দেখো 💌
+<h1>
+💌 Sweeti-এর জন্য ছোট্ট একটি বার্তা
+</h1>
+
+
+<div class="envelope" onclick="openLetter()">
+
+</div>
+
+
+<div class="letter" id="letter">
+
+
+<p id="typing"></p>
+
+
+<br>
+
+
+<div class="teddy-area">
+
+
+<div class="teddy">
+🧸
+</div>
+
+
+<div class="teddy">
+🧸
+</div>
+
+
+</div>
+
+
+<button onclick="reply()">
+হ্যাঁ 🙂
 </button>
 
 
-<div class="message" id="msg">
+<button onclick="noReply()">
+না
+</button>
 
-<p>
-Sweeti,<br><br>
 
-আমি জানি তোমার এখন পরীক্ষার সময় চলছে।
-এই সময় তোমার পড়াশোনা আর মানসিক শান্তিটাই সবচেয়ে গুরুত্বপূর্ণ।<br><br>
+</div>
 
-কখনো যদি আমার কোনো কথা বা আচরণে তোমার খারাপ লেগে থাকে,
-তাহলে আমি সেটা বুঝতে চেষ্টা করছি।<br><br>
-
-আমি চাই তুমি মন দিয়ে পরীক্ষা দাও,
-নিজের যত্ন নাও এবং আত্মবিশ্বাস রাখো।<br><br>
-    
-আমি তোমার কলের জন্য অপেক্ষা করবো। 🌸
-
-<br><br>
-
-— Mahin
-
-</p>
 
 </div>
 
@@ -160,37 +909,65 @@ Sweeti,<br><br>
 
 <script>
 
-function openMessage(){
-    document.getElementById("msg").style.display="block";
+function openLetter(){
+
+document.getElementById("letter")
+.style.display="block";
+
+
+typeText();
+
 }
 
 
-// floating hearts
 
-setInterval(()=>{
+let message=
 
-let heart=document.createElement("div");
-
-heart.className="heart";
-heart.innerHTML="♡";
-
-heart.style.left=Math.random()*100+"%";
-heart.style.fontSize=(15+Math.random()*25)+"px";
-heart.style.animationDuration=(3+Math.random()*5)+"s";
-
-document.body.appendChild(heart);
+"Sweeti, হয়তো কোনো কারণে তোমার মন খারাপ হয়েছে। আমি শুধু চাই তুমি ভালো থাকো। তোমার অনুভূতিকে আমি সম্মান করি। 😊";
 
 
-setTimeout(()=>{
-heart.remove();
-},8000);
+let index=0;
 
 
-},500);
+function typeText(){
+
+if(index < message.length){
+
+document.getElementById("typing")
+.innerHTML += message.charAt(index);
+
+index++;
+
+setTimeout(typeText,50);
+
+}
+
+}
+
+
+
+function reply(){
+
+alert(
+"ধন্যবাদ Sweeti ❤️ তোমার হাসিটাই সবচেয়ে গুরুত্বপূর্ণ।"
+);
+
+}
+
+
+
+function noReply(){
+
+alert(
+"ঠিক আছে 😊 যখন তোমার মন ভালো হবে তখন কথা হবে।"
+);
+
+}
 
 
 </script>
 
 
 </body>
+
 </html>
